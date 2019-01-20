@@ -254,6 +254,7 @@
     #define HEATER_1_PIN   MOSFET_D_PIN
   #endif
 #endif
+#undef FAN1_PIN // The FAN1_PIN conflicts with the FAN_PIN, we only have 1 extruder so we undefine it
 
 #ifndef FAN_PIN
   #if ENABLED(IS_RAMPS_EFB) || ENABLED(IS_RAMPS_EFF)  // Hotend, Fan, Bed or Hotend, Fan, Fan
@@ -263,7 +264,7 @@
   #elif ENABLED(IS_RAMPS_EEB)                         // Hotend, Hotend, Bed
     #define FAN_PIN         4   // IO pin. Buffer needed
   #else                                               // Non-specific are "EFB" (i.e., "EFBF" or "EFBE")
-    #define FAN_PIN        RAMPS_D9_PIN
+    #define FAN_PIN        MOSFET_D_PIN
   #endif
 #endif
 
